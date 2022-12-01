@@ -1,38 +1,57 @@
 import '../utils/index.dart';
+import 'dart:math';
 
-/// Every day should extend [GenericDay] to have access to the corresponding
-/// input and a common interface.
-///
-/// Naming convention is set to pad any single-digit day with `0` to have proper
-/// ordering of files and correct mapping between input for days and the day files.
 class Day01 extends GenericDay {
-  // call the superclass with an integer == today´s day
   Day01() : super(1);
 
-  /// The [InputUtil] can be accessed through the superclass variable `input`. \
-  /// There are several methods in that class that parse the input in different
-  /// ways, an example is given below
-  ///
-  /// The return type of this is `dynamic` for [GenericDay], so you can decide
-  /// on a day-to-day basis what this function should return.
-  @override
-  List<int> parseInput() {
-    final lines = input.getPerLine();
-    // exemplary usage of ParseUtil class
-    return ParseUtil.stringListToIntList(lines);
+  List<List<String>> suppliesParse(List<String> supplies) {
+    final List<List<String>> suppliesParsed = [];
+    int indexBegin = 0;
+    int indexEnd = 0;
+    for (final line in supplies) {
+      if (line.isNotEmpty) {
+        indexEnd++;
+      } else {
+        suppliesParsed.add(supplies.sublist(indexBegin, indexEnd));
+        indexBegin = indexEnd + 1;
+        indexEnd = indexBegin;
+      }
+    }
+    return suppliesParsed;
   }
 
-  /// The `solvePartX` methods always return a int, the puzzle solution. This
-  /// solution will be printed in main.
+  @override
+  List<List<int>> parseInput() {
+    final inputUtil = InputUtil(1);
+    final lines = inputUtil.getPerLine();
+    final parsedLines = suppliesParse(lines);
+    final parsedLinesInt = parsedLines.map(
+      (e) => ParseUtil.stringListToIntList(e),
+    );
+    return parsedLinesInt.toList();
+  }
+
   @override
   int solvePart1() {
-    // TODO implement
-    return 0;
+    final elfSupplies = parseInput();
+    final maxSupplies = elfSupplies
+        .map((e) => e.reduce((value, element) => value + element))
+        .toList();
+    final maxSupply = max(maxSupplies) ?? 0;
+    return maxSupply;
   }
 
   @override
   int solvePart2() {
-    // TODO implement
-    return 0;
+    final elfSupplies = parseInput();
+    final maxSupplies = elfSupplies
+        .map((e) => e.reduce((value, element) => value + element))
+        .toList();
+    final sortMaxSupplies = maxSupplies..sort();
+    final invertedMaxSupplies = sortMaxSupplies.reversed.toList();
+    final threeBiggestSupplies = invertedMaxSupplies.sublist(0, 3);
+    final maxSupply =
+        threeBiggestSupplies.reduce((value, element) => value + element);
+    return maxSupply;
   }
 }
