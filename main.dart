@@ -3,11 +3,12 @@ import 'utils/generic_day.dart';
 
 /// Const to switch between showing the results for each day in [days], or only
 /// the latest.
-const ONLY_SHOW_LAST = false;
+const ONLY_SHOW_LAST = true;
 
 /// List holding all the solution classes.
 final days = <GenericDay>[
   Day01(),
+  Day02(),
 ];
 
 void main() {
