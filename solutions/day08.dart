@@ -16,9 +16,6 @@ class Day08 extends GenericDay {
   }
 
   bool isTreeVisible(Field<int> field, int ogX, int ogY) {
-    if (ogX == 46 && ogY == 1) {
-      print('here');
-    }
     int treeHeight = field.getValueAt(ogX, ogY);
     int highest = treeHeight;
     bool visible = true;
