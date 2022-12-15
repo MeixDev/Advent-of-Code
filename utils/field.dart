@@ -1,8 +1,38 @@
+import 'dart:math' as math;
 import 'package:quiver/iterables.dart';
 import 'package:tuple/tuple.dart';
 
 typedef Position = Tuple2<int, int>;
 typedef VoidFieldCallback = void Function(int, int);
+
+class Segment {
+  const Segment(this.start, this.end);
+
+  final Position start;
+  final Position end;
+
+  /// Return all the points between start and end.
+  Set<Position> get points {
+    final points = <Position>{};
+    final xDiff = end.x - start.x;
+    final yDiff = end.y - start.y;
+    final xDir = xDiff.sign;
+    final yDir = yDiff.sign;
+    final xSteps = xDiff.abs();
+    final ySteps = yDiff.abs();
+    final steps = math.max(xSteps, ySteps);
+
+    for (int i = 0; i <= steps; i++) {
+      final x = start.x + (i * xDir * xSteps ~/ steps);
+      final y = start.y + (i * yDir * ySteps ~/ steps);
+      points.add(Position(x, y));
+    }
+    return points;
+  }
+
+  @override
+  String toString() => '$start -> $end';
+}
 
 /// A helper class for easier work with 2D data.
 class Field<T> {
