@@ -1,5 +1,4 @@
 import '../utils/index.dart';
-import 'dart:math';
 
 class Day01 extends GenericDay {
   Day01() : super(1);
