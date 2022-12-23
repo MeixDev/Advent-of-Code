@@ -1,4 +1,5 @@
 import '../utils/index.dart';
+import 'package:quiver/iterables.dart';
 
 class Day01 extends GenericDay {
   Day01() : super(1);
