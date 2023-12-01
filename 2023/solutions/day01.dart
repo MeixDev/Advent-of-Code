@@ -136,14 +136,14 @@ class Day01 extends GenericDay {
 
   @override
   List<int> parseInput() {
-    final inputUtil = InputUtil(1);
+    final inputUtil = InputUtil(day);
     final lines = inputUtil.getPerLine();
     final numbers = parseLines(lines);
     return numbers;
   }
 
   List<int> parseInputPartTwo() {
-    final inputUtil = InputUtil(1);
+    final inputUtil = InputUtil(day);
     final lines = inputUtil.getPerLine();
     final numbers = parseLinesPartTwoAttemptTwo(lines);
     return numbers;
