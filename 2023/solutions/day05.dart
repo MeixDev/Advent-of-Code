@@ -1,13 +1,12 @@
 import '../utils/index.dart';
 
-class Day00 extends GenericDay {
-  Day00() : super(0);
+class Day05 extends GenericDay {
+  Day05() : super(5);
 
   void parseLines(List<String> lines) {}
 
   @override
   void parseInput() {
-    // ignore: unused_local_variable
     final lines = input.getPerLine();
   }
 
