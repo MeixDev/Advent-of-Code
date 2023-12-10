@@ -1,7 +1,5 @@
 import '../utils/index.dart';
 
-import 'package:collection/collection.dart';
-
 enum HandType {
   highCard,
   pair,
