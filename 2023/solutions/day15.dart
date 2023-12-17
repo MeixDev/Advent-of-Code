@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import '../utils/index.dart';
 
 class Instruction {
