@@ -1,3 +1,5 @@
+import 'direction.dart';
+
 class Point {
   int x;
   int y;
@@ -6,6 +8,14 @@ class Point {
 
   int abs() {
     return x.abs() + y.abs();
+  }
+
+  Point move(Direction dir, int length, [bool pointPositiveDown = true]) {
+    if (pointPositiveDown) {
+      return this + dir.pointPositiveDown * length;
+    } else {
+      return this + dir.pointPositiveUp * length;
+    }
   }
 
   Point operator +(Point other) {
