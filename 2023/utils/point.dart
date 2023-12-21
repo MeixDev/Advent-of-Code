@@ -1,6 +1,8 @@
+import 'package:equatable/equatable.dart';
+
 import 'direction.dart';
 
-class Point {
+class Point extends Equatable {
   int x;
   int y;
 
@@ -40,6 +42,9 @@ class Point {
     }
     return false;
   }
+
+  @override
+  List<Object?> get props => [x, y];
 
   List<Point> get neighbors {
     return [
