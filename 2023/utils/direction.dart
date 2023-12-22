@@ -132,3 +132,39 @@ class DirectionPointMapping {
     );
   }
 }
+
+enum Direction3D {
+  UP,
+  RIGHT,
+  DOWN,
+  LEFT,
+  FRONT,
+  BACK;
+
+  Point3D get pointMap {
+    switch (this) {
+      case Direction3D.UP:
+        return Direction3DPointMapping.positiveY;
+      case Direction3D.RIGHT:
+        return Direction3DPointMapping.positiveX;
+      case Direction3D.DOWN:
+        return Direction3DPointMapping.negativeY;
+      case Direction3D.LEFT:
+        return Direction3DPointMapping.negativeX;
+      case Direction3D.FRONT:
+        return Direction3DPointMapping.positiveZ;
+      case Direction3D.BACK:
+        return Direction3DPointMapping.negativeZ;
+    }
+  }
+}
+
+class Direction3DPointMapping {
+  static Point3D get positiveX => Point3D(1, 0, 0);
+  static Point3D get positiveY => Point3D(0, 1, 0);
+  static Point3D get positiveZ => Point3D(0, 0, 1);
+
+  static Point3D get negativeX => Point3D(-1, 0, 0);
+  static Point3D get negativeY => Point3D(0, -1, 0);
+  static Point3D get negativeZ => Point3D(0, 0, -1);
+}
