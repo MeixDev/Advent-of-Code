@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'direction.dart';
 
 class Point extends Equatable {
-  int x;
-  int y;
+  final int x;
+  final int y;
 
   Point(this.x, this.y);
 
@@ -66,5 +66,53 @@ class Point extends Equatable {
 
   factory Point.ZERO() {
     return Point(0, 0);
+  }
+}
+
+class Point3D extends Equatable {
+  final int x;
+  final int y;
+  final int z;
+
+  Point3D(this.x, this.y, this.z);
+
+  Point3D move(Direction3D dir, int length) {
+    return this + dir.pointMap * length;
+  }
+
+  Point3D operator +(Point3D other) {
+    return Point3D(x + other.x, y + other.y, z + other.z);
+  }
+
+  Point3D operator -(Point3D other) {
+    return Point3D(x - other.x, y - other.y, z - other.z);
+  }
+
+  Point3D operator *(int other) {
+    return Point3D(x * other, y * other, z * other);
+  }
+
+  Point3D operator /(int other) {
+    return Point3D(x ~/ other, y ~/ other, z ~/ other);
+  }
+
+  bool operator ==(Object other) {
+    if (other is Point3D) {
+      return x == other.x && y == other.y && z == other.z;
+    }
+    return false;
+  }
+
+  @override
+  List<Object?> get props => [x, y, z];
+
+  List<Point3D> get neighbors {
+    return [
+      for (final dir in Direction3D.values) this + dir.pointMap,
+    ];
+  }
+
+  factory Point3D.ZERO() {
+    return Point3D(0, 0, 0);
   }
 }
