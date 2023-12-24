@@ -11,6 +11,7 @@ dependencies:
   equatable: ^2.0.5
   quiver: ^3.2.1
   tuple: ^2.0.2
+  z3: ^0.1.0
 
 dev_dependencies:
   fd_lints: ^2.2.0
