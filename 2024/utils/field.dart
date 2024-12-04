@@ -135,6 +135,18 @@ class Field<T> {
         (pos) => pos.x < 0 || pos.y < 0 || pos.x >= width || pos.y >= height);
   }
 
+  /// Returns all positional diagonals of a point. This includes `ONLY` diagonal neighbours.
+  Iterable<Position> diagonals(int x, int y) {
+    return <Position>{
+      // positions are added in a circle, starting at the top right
+      Position(x + 1, y - 1),
+      Position(x + 1, y + 1),
+      Position(x - 1, y + 1),
+      Position(x - 1, y - 1),
+    }..removeWhere(
+        (pos) => pos.x < 0 || pos.y < 0 || pos.x >= width || pos.y >= height);
+  }
+
   /// Returns a deep copy by value of this [Field].
   Field<T> copy() {
     final newField = List<List<T>>.generate(
