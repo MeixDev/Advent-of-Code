@@ -34,8 +34,8 @@ class Day04 extends GenericDay {
           if (mas.length == 1) {
             return 1;
           }
-          print(
-              "Found ${mas[0]} at ${neighbour.x}, ${neighbour.y}. Progressing to search ${mas[1]}");
+          // print(
+          //     "Found ${mas[0]} at ${neighbour.x}, ${neighbour.y}. Progressing to search ${mas[1]}");
           found += tryFindXmas(field, neighbour.x, neighbour.y, mas.sublist(1),
               Position(neighbour.x - x, neighbour.y - y));
         }
@@ -51,8 +51,8 @@ class Day04 extends GenericDay {
         if (mas.length == 1) {
           return 1;
         }
-        print(
-            "Found ${mas[0]} at $nextX, $nextY. Progressing to search ${mas[1]}");
+        // print(
+        //     "Found ${mas[0]} at $nextX, $nextY. Progressing to search ${mas[1]}");
         found += tryFindXmas(field, nextX, nextY, mas.sublist(1), direction);
       }
     }
@@ -62,11 +62,11 @@ class Day04 extends GenericDay {
   @override
   int solvePart1() {
     final field = parseInput();
-    print(field.toString());
+    // print(field.toString());
     int sum = 0;
     field.forEach((int x, int y) {
       if (field.getValueAt(x, y) == 'X') {
-        print('Found X at $x, $y');
+        // print('Found X at $x, $y');
         final mas = <String>['M', 'A', 'S'];
         final found = tryFindXmas(field, x, y, mas, null);
         sum += found;
@@ -78,11 +78,11 @@ class Day04 extends GenericDay {
   @override
   int solvePart2() {
     final field = parseInput();
-    print(field.toString());
+    // print(field.toString());
     int sum = 0;
     field.forEach((int x, int y) {
       if (field.getValueAt(x, y) == 'A') {
-        print('Found X at $x, $y');
+        // print('Found X at $x, $y');
         final crossMas = field.diagonals(x, y);
         if (crossMas.length != 4) {
           return;

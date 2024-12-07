@@ -15,10 +15,13 @@ abstract class GenericDay {
   int solvePart2();
 
   void printSolutions() {
+    final stopwatch = Stopwatch()..start();
     print("-------------------------");
     print("         Day $day        ");
     print("Solution for puzzle one: ${solvePart1()}");
     print("Solution for puzzle two: ${solvePart2()}");
+    print("Execution time: ${stopwatch.elapsed}");
+    stopwatch.stop();
     print("\n");
   }
 }

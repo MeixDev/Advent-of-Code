@@ -65,7 +65,7 @@ class Day02 extends GenericDay {
           break;
         }
       }
-      print('Line: $line, Index: $index');
+      // print('Line: $line, Index: $index');
       if (index == line.length) {
         safe++;
       }
