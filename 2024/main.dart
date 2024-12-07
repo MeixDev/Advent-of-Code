@@ -14,7 +14,7 @@ final days = <GenericDay>[
   Day05(),
   Day06(),
   Day07(),
-  // Day08(),
+  Day08(),
   // Day09(),
   // Day10(),
   // Day11(),
@@ -35,7 +35,12 @@ final days = <GenericDay>[
 ];
 
 void main() {
+  final stopwatch = Stopwatch()..start();
   ONLY_SHOW_LAST
       ? days.last.printSolutions()
-      : days.forEach((day) => day.printSolutions());
+      : {
+          days.forEach((day) => day.printSolutions()),
+          print("Total execution time: ${stopwatch.elapsed}"),
+          stopwatch.stop()
+        };
 }

@@ -23,11 +23,11 @@ class Day03 extends GenericDay {
         if (idx == -1) {
           break;
         }
-        print("Beginning mul( at $idx");
+        // print("Beginning mul( at $idx");
         progress = progress.substring(idx + 4);
         final matchN1Reg = pattern.firstMatch(progress);
         if (matchN1Reg == null) {
-          print("No n1 match, broke");
+          // print("No n1 match, broke");
           continue;
         }
         final matchN1 = matchN1Reg.group(0)!;
@@ -35,23 +35,23 @@ class Day03 extends GenericDay {
         final n1 = int.parse(matchN1);
         progress = progress.substring(n1.toString().length);
         if (progress[0] != ',') {
-          print("No comman after n1, broke");
+          // print("No comman after n1, broke");
           continue;
         }
         progress = progress.substring(1);
         final matchN2Reg = pattern.firstMatch(progress);
         if (matchN2Reg == null) {
-          print("No n2 match, broke");
+          // print("No n2 match, broke");
           continue;
         }
         final matchN2 = matchN2Reg.group(0)!;
         final n2 = int.parse(matchN2);
         progress = progress.substring(n2.toString().length);
         if (progress[0] != ')') {
-          print("No closing bracket after n2, broke");
+          // print("No closing bracket after n2, broke");
           continue;
         }
-        print("n1: $n1, n2: $n2");
+        // print("n1: $n1, n2: $n2");
         sum += n1 * n2;
       }
     }
@@ -76,22 +76,22 @@ class Day03 extends GenericDay {
           if (enabled) {
             int jdx = instructionsSubstring.indexOf("don't()");
             if (jdx == -1) break;
-            print("Found don't() at $jdx");
+            // print("Found don't() at $jdx");
             enabled = false;
             instructionsSubstring = instructionsSubstring.substring(jdx + 7);
           } else {
             int jdx = instructionsSubstring.indexOf("do()");
             if (jdx == -1) break;
-            print("Found do() at $jdx");
+            // print("Found do() at $jdx");
             enabled = true;
             instructionsSubstring = instructionsSubstring.substring(jdx + 4);
           }
         }
-        print("Beginning mul( at $idx");
+        // print("Beginning mul( at $idx");
         progress = progress.substring(idx + 4);
         final matchN1Reg = pattern.firstMatch(progress);
         if (matchN1Reg == null) {
-          print("No n1 match, broke");
+          // print("No n1 match, broke");
           continue;
         }
         final matchN1 = matchN1Reg.group(0)!;
@@ -99,23 +99,23 @@ class Day03 extends GenericDay {
         final n1 = int.parse(matchN1);
         progress = progress.substring(n1.toString().length);
         if (progress[0] != ',') {
-          print("No comman after n1, broke");
+          // print("No comman after n1, broke");
           continue;
         }
         progress = progress.substring(1);
         final matchN2Reg = pattern.firstMatch(progress);
         if (matchN2Reg == null) {
-          print("No n2 match, broke");
+          // print("No n2 match, broke");
           continue;
         }
         final matchN2 = matchN2Reg.group(0)!;
         final n2 = int.parse(matchN2);
         progress = progress.substring(n2.toString().length);
         if (progress[0] != ')') {
-          print("No closing bracket after n2, broke");
+          // print("No closing bracket after n2, broke");
           continue;
         }
-        print("n1: $n1, n2: $n2, enabled: $enabled");
+        // print("n1: $n1, n2: $n2, enabled: $enabled");
         if (enabled) {
           sum += n1 * n2;
         }

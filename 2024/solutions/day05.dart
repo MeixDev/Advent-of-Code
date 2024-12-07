@@ -60,9 +60,9 @@ class Day05 extends GenericDay {
           for (final rule in beforeRules) {
             if (beforeInUpdateList.contains(rule.after)) {
               valid = false;
-              print('Invalid: ${update.join(',')}');
-              print(
-                  'Invalid rule: >${rule.before}< | ${rule.after} on index $i ($entry)');
+              // print('Invalid: ${update.join(',')}');
+              // print(
+              //     'Invalid rule: >${rule.before}< | ${rule.after} on index $i ($entry)');
               break;
             }
           }
@@ -74,9 +74,9 @@ class Day05 extends GenericDay {
           for (final rule in afterRules) {
             if (afterInUpdateList.contains(rule.before)) {
               valid = false;
-              print('Invalid: ${update.join(',')}');
-              print(
-                  'Invalid rule: ${rule.before} | >${rule.after}<  on index $i ($entry)');
+              // print('Invalid: ${update.join(',')}');
+              // print(
+              //     'Invalid rule: ${rule.before} | >${rule.after}<  on index $i ($entry)');
 
               break;
             }
@@ -146,13 +146,13 @@ class Day05 extends GenericDay {
           for (final rule in beforeRules) {
             if (beforeInUpdateList.contains(rule.after)) {
               final index = fixedUpdate.indexOf(rule.after);
-              print('Invalid: ${fixedUpdate.join(',')}');
-              print(
-                  'Invalid rule: ${rule.before} | >${rule.after}<  on index $i ($entry)');
+              // print('Invalid: ${fixedUpdate.join(',')}');
+              // print(
+              //     'Invalid rule: ${rule.before} | >${rule.after}<  on index $i ($entry)');
               fixedUpdate.removeAt(index);
               fixedUpdate.insert(i, rule.after);
               changed = true;
-              print('Fixed: ${fixedUpdate.join(',')}');
+              // print('Fixed: ${fixedUpdate.join(',')}');
               break;
             }
           }
@@ -161,13 +161,13 @@ class Day05 extends GenericDay {
           for (final rule in afterRules) {
             if (afterInUpdateList.contains(rule.before)) {
               final index = fixedUpdate.indexOf(rule.before);
-              print('Invalid: ${fixedUpdate.join(',')}');
-              print(
-                  'Invalid rule: ${rule.before} | >${rule.after}<  on index $i ($entry)');
+              // print('Invalid: ${fixedUpdate.join(',')}');
+              // print(
+              //     'Invalid rule: ${rule.before} | >${rule.after}<  on index $i ($entry)');
               fixedUpdate.removeAt(index);
               fixedUpdate.insert(i, rule.before);
               changed = true;
-              print('Fixed: ${fixedUpdate.join(',')}');
+              // print('Fixed: ${fixedUpdate.join(',')}');
               break;
             }
           }
@@ -176,7 +176,7 @@ class Day05 extends GenericDay {
           i = -1;
         }
       }
-      print('Final: ${fixedUpdate.join(',')}');
+      // print('Final: ${fixedUpdate.join(',')}');
       final middleValue = fixedUpdate[fixedUpdate.length ~/ 2];
       sum += middleValue;
     }
