@@ -1,3 +1,6 @@
 .dart-tool
 .dart_tool/package_config.json
 .packages
+2022/input/**
+2023/input/**
+2024/input/**
